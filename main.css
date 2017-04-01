@@ -1,0 +1,103 @@
+html {
+  font-size: 14px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+body {
+  margin: 0;
+  background: #041223;
+  color: white;
+}
+.playground {
+  margin: 8rem;
+}
+.playground > * {
+  margin-bottom: 8rem;
+}
+.button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: #FF6D00;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+.spreadsheet {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  overflow: auto;
+}
+.spreadsheet-header {
+  display: flex;
+  flex-direction: row;
+  text-transform: capitalize;
+  background: #313D4F;
+  color: #7F8FA4;
+}
+.spreadsheet-header > * {
+  flex: 1;
+  padding: 1rem;
+  margin: 0;
+}
+.spreadsheet-body {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #162539;
+}
+.spreadsheet-item {
+  display: flex;
+  flex-direction: row;
+}
+.spreadsheet-item:hover {
+  background: #101E31;
+}
+.spreadsheet-item > * {
+  flex: 1;
+  padding: 1rem;
+  border-width: 1px 0 0 0;
+  border-color: #313D4F;
+  border-style: solid;
+}
+.spreadsheet-header [data-column="Selection"] {
+  text-align: center;
+  padding-right: 0;
+}
+[data-column="Selection"] {
+  flex: 0;
+  flex-basis: 1.15rem;
+  padding-right: 0;
+}
+[data-column="Project Name"] {
+  flex: 1.5;
+}
+[data-column="Role"],
+[data-column="Action"] {
+  flex: 0.5;
+}
+/* */
+[data-column="Temperature"] div {
+  background: black;
+  height: 5px;
+  border-radius: 4px;
+  width: 100%;
+  overflow: hidden;
+}
+[data-column="Temperature"] div span {
+  height: inherit;
+}
+[data-column="Rule"] {
+  flex: 4;
+}
+[data-column="Mean Rel. Target"],
+[data-column="Mean Target"],
+[data-column="Observations [%]"] {
+  text-align: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+[name=hotspots] .spreadsheet-item > * {
+  display: flex;
+  align-items: center;
+}
