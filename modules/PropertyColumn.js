@@ -2,14 +2,14 @@ import React from 'react';
 import DataColumn from '../lib/DataColumn';
 
 export default class PropertyColumn {
-  static of(displayName, getter) {
+  static of(id, caption, getter) {
     return class extends DataColumn {
       static get name() {
-        return displayName;
+        return id;
       }
 
       getCaption() {
-        return displayName
+        return caption;
       }
 
       getValue(datum) {

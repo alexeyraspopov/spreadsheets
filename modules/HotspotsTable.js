@@ -27,19 +27,22 @@ class Temperature extends DataColumn {
 }
 
 export default class HotspotsTable extends Component {
-  render() {
-    const columns = [
-      PropertyColumn.of('Rule', d => d.rule),
+  constructor(props) {
+    super(props);
+    this.columns = [
+      PropertyColumn.of('Rule', 'Rule', d => d.rule),
       Temperature,
-      PropertyColumn.of('Mean Rel. Target', d => d.mean),
-      PropertyColumn.of('Mean Target', d => d.meanTarget),
-      PropertyColumn.of('Observations [%]', d => d.observations),
+      PropertyColumn.of('Mean', 'Mean Rel. Target', d => d.mean),
+      PropertyColumn.of('MeanTarget', 'Mean Target', d => d.meanTarget),
+      PropertyColumn.of('Observations', 'Observations [%]', d => d.observations),
     ];
+  }
 
+  render() {
     return (
       <Spreadsheet
         name="hotspots"
-        columns={columns}
+        columns={this.columns}
         rows={this.props.hotspots} />
     );
   }

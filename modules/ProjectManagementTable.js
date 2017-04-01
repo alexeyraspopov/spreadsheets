@@ -17,19 +17,22 @@ class CreatedAt extends DateColumn {
 }
 
 export default class ProjectManagementTable extends Component {
-  render() {
-    const columns = [
+  constructor(props) {
+    super(props);
+    this.columns = [
       Selection,
-      PropertyColumn.of('Project Name', d => d.projectName),
-      PropertyColumn.of('Filename', d => d.filename),
+      PropertyColumn.of('ProjectName', 'Project Name', d => d.projectName),
+      PropertyColumn.of('Filename', 'Filename', d => d.filename),
       CreatedAt,
-      PropertyColumn.of('Role', d => d.role),
+      PropertyColumn.of('Role', 'Role', d => d.role),
       Action,
     ];
+  }
 
+  render() {
     return (
       <Spreadsheet
-        columns={columns}
+        columns={this.columns}
         rows={this.props.projects} />
     );
   }

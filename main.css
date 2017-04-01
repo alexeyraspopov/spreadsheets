@@ -69,7 +69,7 @@ body {
   flex-basis: 1.15rem;
   padding-right: 0;
 }
-[data-column="Project Name"] {
+[data-column="ProjectName"] {
   flex: 1.5;
 }
 [data-column="Role"],
@@ -90,9 +90,9 @@ body {
 [data-column="Rule"] {
   flex: 4;
 }
-[data-column="Mean Rel. Target"],
-[data-column="Mean Target"],
-[data-column="Observations [%]"] {
+[data-column="Mean"],
+[data-column="MeanTarget"],
+[data-column="Observations"] {
   text-align: center;
   justify-content: center;
   white-space: nowrap;
