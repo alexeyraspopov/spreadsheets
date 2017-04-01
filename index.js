@@ -42,6 +42,10 @@ const hotspots = [
     temperature: 0.4, mean: 1.65, meanTarget: 50965, observations: 21.62 },
   { id: 'H8', rule: 'Enclosure-EROPS w AC > 0.5 & Hydraulics_Flow-Standard <= 0.5',
     temperature: -0.4, mean: 1.65, meanTarget: 50965, observations: 21.62 },
-]
+];
 
-ReactDOM.render(<App projects={projects} hotspots={hotspots} />, document.querySelector('main'));
+const models = [
+  { id: 'M1', modelType: 'Nystroem Kernel SVM Classifier', validation: 0.9756 },
+];
+
+ReactDOM.render(<App projects={projects} hotspots={hotspots} models={models} />, document.querySelector('main'));
