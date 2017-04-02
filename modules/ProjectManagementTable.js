@@ -19,7 +19,21 @@ class CreatedAt extends DateColumn {
 export default class ProjectManagementTable extends Component {
   constructor(props) {
     super(props);
-    this.columns = [
+    this.matcher = window.matchMedia('(max-width: 800px)')
+    this.state = { columns: this.getColumns(this.matcher.matches) };
+  }
+
+  getColumns(matches) {
+    if (matches) {
+      return [
+        Selection,
+        PropertyColumn.of('ProjectName', 'Project Name', d => d.projectName),
+        CreatedAt,
+        Action,
+      ];
+    }
+
+    return [
       Selection,
       PropertyColumn.of('ProjectName', 'Project Name', d => d.projectName),
       PropertyColumn.of('Filename', 'Filename', d => d.filename),
@@ -29,10 +43,24 @@ export default class ProjectManagementTable extends Component {
     ];
   }
 
+  handleEvent(event) {
+    const columns = this.getColumns(event.matches);
+    this.setState(() => ({ columns }));
+  }
+
+  componentDidMount() {
+    this.matcher.addListener(this);
+  }
+
+  componentWillUnmount() {
+    this.matcher.removeListener(this);
+  }
+
   render() {
     return (
       <Spreadsheet
-        columns={this.columns}
+        name="projects"
+        columns={this.state.columns}
         rows={this.props.projects} />
     );
   }
