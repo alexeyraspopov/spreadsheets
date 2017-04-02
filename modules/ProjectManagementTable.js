@@ -16,6 +16,10 @@ class CreatedAt extends DateColumn {
   }
 }
 
+const ProjectName = PropertyColumn.of('ProjectName', 'Project Name', d => d.projectName);
+const Filename = PropertyColumn.of('Filename', 'Filename', d => d.filename);
+const Role = PropertyColumn.of('Role', 'Role', d => d.role);
+
 export default class ProjectManagementTable extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +31,7 @@ export default class ProjectManagementTable extends Component {
     if (matches) {
       return [
         Selection,
-        PropertyColumn.of('ProjectName', 'Project Name', d => d.projectName),
+        ProjectName,
         CreatedAt,
         Action,
       ];
@@ -35,10 +39,10 @@ export default class ProjectManagementTable extends Component {
 
     return [
       Selection,
-      PropertyColumn.of('ProjectName', 'Project Name', d => d.projectName),
-      PropertyColumn.of('Filename', 'Filename', d => d.filename),
+      ProjectName,
+      Filename,
       CreatedAt,
-      PropertyColumn.of('Role', 'Role', d => d.role),
+      Role,
       Action,
     ];
   }
