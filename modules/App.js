@@ -6,9 +6,9 @@ import LeaderboardTable from './LeaderboardTable';
 export default function App({ projects, hotspots, models }) {
   return (
     <article className="playground">
+      <ProjectManagementTable projects={projects} />
       <LeaderboardTable models={models} />
       <HotspotsTable hotspots={hotspots} />
-      <ProjectManagementTable projects={projects} />
     </article>
   );
 }
