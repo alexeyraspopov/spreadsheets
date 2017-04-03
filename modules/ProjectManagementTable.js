@@ -23,7 +23,7 @@ const Role = PropertyColumn.of('Role', 'Role', d => d.role);
 export default class ProjectManagementTable extends Component {
   constructor(props) {
     super(props);
-    this.matcher = window.matchMedia('(max-width: 800px)')
+    this.matcher = window.matchMedia('(max-width: 800px)');
     this.state = { columns: this.getColumns(this.matcher.matches) };
   }
 
