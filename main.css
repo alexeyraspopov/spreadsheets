@@ -78,10 +78,25 @@ body {
 [data-column="ProjectName"] {
   flex: 1.5;
 }
+[data-column="ProjectMeta"] {
+  flex: 2;
+}
+[data-column="ProjectMeta"] p {
+  margin: 0;
+}
 [data-column="Role"],
 [data-column="Action"] {
   flex: 0.5;
 }
+[data-column="ProjectName"],
+[data-column="ProjectMeta"],
+[data-column="Filename"],
+[data-column="CreatedAt"] {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 /* */
 [data-column="Temperature"] div {
   background: black;

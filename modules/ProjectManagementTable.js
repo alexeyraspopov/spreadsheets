@@ -20,6 +20,21 @@ const ProjectName = PropertyColumn.of('ProjectName', 'Project Name', d => d.proj
 const Filename = PropertyColumn.of('Filename', 'Filename', d => d.filename);
 const Role = PropertyColumn.of('Role', 'Role', d => d.role);
 
+class ProjectMeta extends DataColumn {
+  getCaption() {
+    return 'Project Name & Filename';
+  }
+
+  renderData({ data }) {
+    return (
+      <span>
+        <p>{data.projectName}</p>
+        <small>{data.filename}</small>
+      </span>
+    )
+  }
+}
+
 export default class ProjectManagementTable extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +46,7 @@ export default class ProjectManagementTable extends Component {
     if (matches) {
       return [
         Selection,
-        ProjectName,
+        ProjectMeta,
         CreatedAt,
         Action,
       ];
