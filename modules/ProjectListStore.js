@@ -21,3 +21,5 @@ class ProjectListStore extends ReduceStore {
 
   }
 }
+
+export default new ProjectListStore(Dispatcher);
